@@ -1,12 +1,15 @@
 import HelloWorld from './components/HelloWorld'
 import NumeroAleatorio from './components/NumeroAleatorio'
-
+import Formulario from './components/Formulario'
+import Lista from './components/Lista'
 
 function App() {
   return (
     <>
-      <HelloWorld name='Bernardo'/>
-      <NumeroAleatorio  />
+      <Formulario />
+      <HelloWorld name='Beernardo' />
+      <NumeroAleatorio />
+      <Lista />
     </>
   )
 }

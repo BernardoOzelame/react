@@ -4,7 +4,7 @@ import { useState } from "react"
 const NumeroAleatorio = () => {
     const [controle, setControle] = useState(null)
     const [num, setNum] = useState(0)
-    const [backgroundColor, setBackgroundColor] = useState('red')
+    const [backgroundColor, setBackgroundColor] = useState('green')
 
 
     const gerarAleatorio = () => {
@@ -28,21 +28,29 @@ const NumeroAleatorio = () => {
 
 
     const iniciar = () => {
+        // if(controle === null){
+        //     setControle(setInterval(trocarFundo, 1000))
+        // }
+
+        if (controle !== null) {
+            parar()
+        }
         setControle(setInterval(trocarFundo, 1000))
     }
 
 
     const parar = () => {
         clearInterval(controle)
+        setControle(null)
     }
 
-
+    
     return (
         <>
-            <div style={{backgroundColor, padding: '10px', marginLeft: '20px', borderRadius: '8px', color: 'white'}}>{num}</div>
-            <button style={{padding: '10px', marginTop:'10px', marginLeft: '20px', borderRadius: '8px'}} onClick={gerarAleatorio} type="button">Gerar Número</button>
-            <button style={{padding: '10px', marginTop:'10px', marginLeft: '20px', borderRadius: '8px'}} onClick={iniciar} type="button">Iniciar</button>
-            <button style={{padding: '10px', marginTop:'10px', marginLeft: '20px', borderRadius: '8px'}} onClick={parar} type="button">Parar</button>
+            <div style={{backgroundColor, color: 'white'}} className="numAleatorio stylePadrao">{num}</div>
+            <button className="stylePadrao" onClick={gerarAleatorio} type="button">Gerar Número</button>
+            <button className="stylePadrao" onClick={iniciar} type="button">Iniciar</button>
+            <button className="stylePadrao" onClick={parar} type="button">Parar</button>
         </>
     )
 }

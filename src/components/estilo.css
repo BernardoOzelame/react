@@ -1,3 +1,10 @@
-.hello-world {
+.hello-world, .numAleatorio {
     font-weight: bold;
+    text-align: center;
+}
+
+.stylePadrao{
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 8px;
 }
