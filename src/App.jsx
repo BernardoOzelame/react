@@ -2,6 +2,7 @@ import HelloWorld from './components/HelloWorld'
 import NumeroAleatorio from './components/NumeroAleatorio'
 import Formulario from './components/Formulario'
 import Lista from './components/Lista'
+import Cidade from './components/Cidade'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <HelloWorld name='Beernardo' />
       <NumeroAleatorio />
       <Lista />
+      <Cidade />
     </>
   )
 }

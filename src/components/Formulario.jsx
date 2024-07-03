@@ -26,6 +26,7 @@ const Formulario = () => {
 
 
     const onChange = ({name, value}) => {
+        digitando()
         setPessoa({...pessoa, [name]: value})
     }
 

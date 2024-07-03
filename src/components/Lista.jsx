@@ -10,20 +10,36 @@ const Lista = () => {
     }
 
 
-    const [frutas, setFrutas] = useState([
-        'Maçã', 'Banana', 'Laranja', 'Limão'
-    ])
+    const [frutas, setFrutas] = useState(['Banana'])
 
 
     const addFruta = (evento) => {
         evento.preventDefault()
-        setFrutas([...frutas, fruta])
+        // Colocar em ordem alfabética:
+        // -------------------------------------
+        const idx = frutas.findIndex(f => f.toLocaleLowerCase() > fruta.toLocaleLowerCase())
+        let f = [...frutas] // cópia de uma variável
+        f.splice(idx < 0 ? f.length : idx, 0, fruta)
+        // -------------------------------------
+        setFrutas(f)
         setFruta("")
+    }
+
+    const removerFruta = (fruta) => {
+        setFrutas(frutas.filter(f => f !== fruta))
     }
 
     return <div>
         <ul>
-            {frutas.map((fruta, indice) => <li className='stylePadrao' key={indice}>{fruta}</li>)} {/* map(): passar em todas as posições do vetor e modificar seus valores*/}
+            {frutas.map((fruta, indice) =>
+                <li 
+                    className='stylePadrao liFrutas'
+                    key={indice}>
+                        <span>{fruta}</span>
+                        <button type='button' onClick={() => removerFruta(fruta)}>
+                            X
+                        </button>
+                </li>)}
         </ul>
         <form onSubmit={addFruta}>
             <input 
